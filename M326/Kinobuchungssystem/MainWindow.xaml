@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Kinobuchungssystem"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <Border Padding="5">
+        <StackPanel>
+            <ComboBox Name="cbxCinemas" Width="200"/>
+        </StackPanel>
+    </Border>
 </Window>

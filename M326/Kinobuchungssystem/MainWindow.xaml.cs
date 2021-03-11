@@ -20,9 +20,15 @@ namespace Kinobuchungssystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Controller controller;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            controller = new Controller();
+
+            cbxCinemas.ItemsSource = controller.Cinemas;
         }
     }
 }
