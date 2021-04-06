@@ -14,11 +14,11 @@ namespace Kinobuchungssystem
 		
 		private readonly Dictionary<int, Room> _rooms;
 
-		public Cinema(string name)
+		public Cinema(string name, Dictionary<int, Room> rooms = null)
         {
             Name = name;
 
-            _rooms = new Dictionary<int, Room>();
+            _rooms = rooms ?? new Dictionary<int, Room>();
         }
 
         public void AddRoom(Room room)

@@ -14,19 +14,24 @@ namespace Kinobuchungssystem
 
         public IEnumerable<Movie> Movies => _movies.Select(m => m.Value);
 
-        private readonly Dictionary<int, Cinema> _cinemas;
+        public IEnumerable<Booking> Bookings => _bookings.Select(m => m.Value);
 
-        private readonly Dictionary<int, Customer> _customers;
+        private Dictionary<int, Cinema> _cinemas;
 
-        private readonly Dictionary<int, Movie> _movies;
+        private Dictionary<int, Customer> _customers;
+
+        private Dictionary<int, Movie> _movies;
+
+        private Dictionary<int, Booking> _bookings;
+
+        private XmlToObject xmlReader;
 
         public Controller()
         {
             _cinemas = new Dictionary<int, Cinema>();
             _customers = new Dictionary<int, Customer>();
             _movies = new Dictionary<int, Movie>();
-
-            //Todo: Some method that fills the Dictionarys
+            _bookings = new Dictionary<int, Booking>();
         }
 
         public void AddCinema(Cinema cinema)
@@ -42,6 +47,20 @@ namespace Kinobuchungssystem
         public void AddMovie(Movie movie)
         {
             _movies.Add(_movies.Count, movie);
+        }
+
+        public void AddBookings(Booking booking)
+        {
+            _bookings.Add(_bookings.Count, booking);
+        }
+
+        public void SetObjectsFromXml(string path)
+        {
+            xmlReader = new XmlToObject(path);
+
+            _movies = xmlReader.GetObject();
+
+            //Todo: do some XmlToObject stuff
         }
     }
 }

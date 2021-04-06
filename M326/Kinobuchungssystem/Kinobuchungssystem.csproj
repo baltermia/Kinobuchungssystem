@@ -59,6 +59,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Show.cs" />
+    <Compile Include="XmlToObject.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

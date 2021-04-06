@@ -1,0 +1,43 @@
+<KinoBuchungsSystem>
+	<Movie>
+		<Entry id="0">
+			<Title Text="Matrix" />
+			<Genre Text="Action, Science Fiction" />
+			<Length Text="8160" />
+		</Entry>
+	</Movie>
+	<Room>
+		<Entry id="0">
+			<Name Text="A4" />
+			<Seats Text="150" />
+		</Entry>
+	</Room>
+	<Show>
+		<Entry id="0">
+			<Room id="0" />
+			<Movie id="0" />
+			<Start Text="29.03.2021 15:00:00" />
+			<End Text="29.03.2021 17:30:00" />
+		</Entry>
+	</Show>
+	<Cinema>
+		<Entry id="0">
+			<Name Text="Apollo" />
+			<Room>
+				<Entry id="0" />
+			</Room>
+		</Entry>
+	</Cinema>
+	<Booking>
+		<Entry id="0">
+			<Show id="0" />
+			<Customer id="0" />
+		</Entry>
+	</Booking>
+	<Customer>
+		<Entry id="0">
+			<Firstname Text="Baltermia" />
+			<Lastname Text="Clopath" />
+		</Entry>
+	</Customer>
+</KinoBuchungsSystem>
