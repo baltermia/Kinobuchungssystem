@@ -22,11 +22,15 @@ namespace Kinobuchungssystem
     {
         private readonly Controller controller;
 
+        private const string DATA = @"C:\Users\clopathba\Documents\GitHub\M326\M326\Kinobuchungssystem\Data.json";
+
         public MainWindow()
         {
             InitializeComponent();
 
-            controller = new Controller(@"C:\Users\clopathba\Downloads\Data.json");
+            controller = new Controller(DATA);
+
+            controller.Save(DATA);
 
             cbxCinemas.ItemsSource = controller.Cinemas;
         }

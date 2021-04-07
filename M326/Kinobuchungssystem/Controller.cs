@@ -58,7 +58,27 @@ namespace Kinobuchungssystem
 
         public void Save(string path)
         {
-            path.ToString();
+            JObject json = new JObject();
+
+            string rooms = Rooms.GetSerialized();
+            json.Add("Rooms", JToken.Parse(rooms));
+
+            string shows = Shows.GetSerialized();
+            json.Add("Shows", JToken.Parse(shows));
+
+            string movies = Movies.GetSerialized();
+            json.Add("Movies", JToken.Parse(movies));
+
+            string customers = Customers.GetSerialized();
+            json.Add("Customers", JToken.Parse(customers));
+
+            string cinemas = Cinemas.GetSerialized();
+            json.Add("Cinemas", JToken.Parse(cinemas));
+
+            string bookings = Bookings.GetSerialized();
+            json.Add("Bookings", JToken.Parse(bookings));
+
+            File.WriteAllText(path, json.ToString());
         }
     }
 }
