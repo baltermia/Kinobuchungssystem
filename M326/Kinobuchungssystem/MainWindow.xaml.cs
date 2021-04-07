@@ -29,7 +29,6 @@ namespace Kinobuchungssystem
             controller = new Controller();
 
             cbxCinemas.ItemsSource = controller.Cinemas;
-
         }
     }
 }
