@@ -29,10 +29,6 @@ namespace Kinobuchungssystem
             _items.Add(_items.Count, item);
         }
 
-        public string GetSerialized() => JsonConvert.SerializeObject(this);
-
-        public static SimpleCollection<T> GetDeserialized(string json) => JsonConvert.DeserializeObject<SimpleCollection<T>>(json);
-
         public IEnumerator<T> GetEnumerator()
         {
             return Items.GetEnumerator();
@@ -42,5 +38,9 @@ namespace Kinobuchungssystem
         {
             return Items.GetEnumerator();
         }
+
+        public string GetSerialized() => JsonConvert.SerializeObject(this);
+
+        public static SimpleCollection<T> GetDeserialized(string json) => JsonConvert.DeserializeObject<SimpleCollection<T>>(json);
     }
 }

@@ -41,14 +41,15 @@ namespace Kinobuchungssystem
 
         public void Save(string path)
         {
-            JObject json = new JObject();
-
-            json.Add("Rooms", JToken.Parse(Rooms.GetSerialized()));
-            json.Add("Shows", JToken.Parse(Shows.GetSerialized()));
-            json.Add("Movies", JToken.Parse(Movies.GetSerialized()));
-            json.Add("Customers", JToken.Parse(Customers.GetSerialized()));
-            json.Add("Cinemas", JToken.Parse(Cinemas.GetSerialized()));
-            json.Add("Bookings", JToken.Parse(Bookings.GetSerialized()));
+            JObject json = new JObject
+            {
+                { "Rooms", JToken.Parse(Rooms.GetSerialized()) },
+                { "Shows", JToken.Parse(Shows.GetSerialized()) },
+                { "Movies", JToken.Parse(Movies.GetSerialized()) },
+                { "Customers", JToken.Parse(Customers.GetSerialized()) },
+                { "Cinemas", JToken.Parse(Cinemas.GetSerialized()) },
+                { "Bookings", JToken.Parse(Bookings.GetSerialized()) }
+            };
 
             File.WriteAllText(path, json.ToString());
         }
