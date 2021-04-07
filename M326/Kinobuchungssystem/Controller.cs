@@ -14,17 +14,15 @@ namespace Kinobuchungssystem
 
         public IEnumerable<Movie> Movies => _movies.Select(m => m.Value);
 
-        public IEnumerable<Booking> Bookings => _bookings.Select(m => m.Value);
+        public IEnumerable<Booking> Bookings => _bookings.Select(b => b.Value);
 
-        private Dictionary<int, Cinema> _cinemas;
+        private readonly Dictionary<int, Cinema> _cinemas;
 
-        private Dictionary<int, Customer> _customers;
+        private readonly Dictionary<int, Customer> _customers;
 
-        private Dictionary<int, Movie> _movies;
+        private readonly Dictionary<int, Movie> _movies;
 
-        private Dictionary<int, Booking> _bookings;
-
-        private XmlToObject xmlReader;
+        private readonly Dictionary<int, Booking> _bookings;
 
         public Controller()
         {
@@ -52,15 +50,6 @@ namespace Kinobuchungssystem
         public void AddBookings(Booking booking)
         {
             _bookings.Add(_bookings.Count, booking);
-        }
-
-        public void SetObjectsFromXml(string path)
-        {
-            xmlReader = new XmlToObject(path);
-
-            _movies = xmlReader.GetObject();
-
-            //Todo: do some XmlToObject stuff
         }
     }
 }

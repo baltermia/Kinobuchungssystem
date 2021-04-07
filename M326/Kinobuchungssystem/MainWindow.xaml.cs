@@ -28,8 +28,6 @@ namespace Kinobuchungssystem
 
             controller = new Controller();
 
-            controller.SetObjectsFromXml("Data.xml");
-
             cbxCinemas.ItemsSource = controller.Cinemas;
 
         }

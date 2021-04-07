@@ -9,6 +9,7 @@
 
     <Border Padding="5">
         <StackPanel>
+            <Label FontSize="22" FontWeight="Bold">Kinobuchungssystem</Label>
             <ComboBox Name="cbxCinemas" Width="200"/>
         </StackPanel>
     </Border>
