@@ -1,11 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kinobuchungssystem
 {
@@ -37,46 +31,24 @@ namespace Kinobuchungssystem
         {
             JObject json = JObject.Parse(File.ReadAllText(path));
 
-            string rooms = json.SelectToken("Rooms").ToString();
-            Rooms = SimpleCollection<Room>.GetDeserialized(rooms);
-
-            string shows = json.SelectToken("Shows").ToString();
-            Shows = SimpleCollection<Show>.GetDeserialized(shows);
-
-            string movies = json.SelectToken("Movies").ToString();
-            Movies = SimpleCollection<Movie>.GetDeserialized(movies);
-
-            string customers = json.SelectToken("Customers").ToString();
-            Customers = SimpleCollection<Customer>.GetDeserialized(customers);
-
-            string cinemas = json.SelectToken("Cinemas").ToString();
-            Cinemas = SimpleCollection<Cinema>.GetDeserialized(cinemas);
-
-            string bookings = json.SelectToken("Bookings").ToString();
-            Bookings = SimpleCollection<Booking>.GetDeserialized(bookings);
+            Rooms = SimpleCollection<Room>.GetDeserialized(json.SelectToken("Rooms").ToString());
+            Shows = SimpleCollection<Show>.GetDeserialized(json.SelectToken("Shows").ToString());
+            Movies = SimpleCollection<Movie>.GetDeserialized(json.SelectToken("Movies").ToString());
+            Customers = SimpleCollection<Customer>.GetDeserialized(json.SelectToken("Customers").ToString());
+            Cinemas = SimpleCollection<Cinema>.GetDeserialized(json.SelectToken("Cinemas").ToString());
+            Bookings = SimpleCollection<Booking>.GetDeserialized(json.SelectToken("Bookings").ToString());
         }
 
         public void Save(string path)
         {
             JObject json = new JObject();
 
-            string rooms = Rooms.GetSerialized();
-            json.Add("Rooms", JToken.Parse(rooms));
-
-            string shows = Shows.GetSerialized();
-            json.Add("Shows", JToken.Parse(shows));
-
-            string movies = Movies.GetSerialized();
-            json.Add("Movies", JToken.Parse(movies));
-
-            string customers = Customers.GetSerialized();
-            json.Add("Customers", JToken.Parse(customers));
-
-            string cinemas = Cinemas.GetSerialized();
-            json.Add("Cinemas", JToken.Parse(cinemas));
-
-            string bookings = Bookings.GetSerialized();
-            json.Add("Bookings", JToken.Parse(bookings));
+            json.Add("Rooms", JToken.Parse(Rooms.GetSerialized()));
+            json.Add("Shows", JToken.Parse(Shows.GetSerialized()));
+            json.Add("Movies", JToken.Parse(Movies.GetSerialized()));
+            json.Add("Customers", JToken.Parse(Customers.GetSerialized()));
+            json.Add("Cinemas", JToken.Parse(Cinemas.GetSerialized()));
+            json.Add("Bookings", JToken.Parse(Bookings.GetSerialized()));
 
             File.WriteAllText(path, json.ToString());
         }
