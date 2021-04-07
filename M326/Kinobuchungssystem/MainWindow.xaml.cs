@@ -26,7 +26,7 @@ namespace Kinobuchungssystem
         {
             InitializeComponent();
 
-            controller = new Controller();
+            controller = new Controller(@"C:\Users\clopathba\Downloads\Data.json");
 
             cbxCinemas.ItemsSource = controller.Cinemas;
         }

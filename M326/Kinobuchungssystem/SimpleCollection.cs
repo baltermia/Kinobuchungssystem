@@ -29,7 +29,7 @@ namespace Kinobuchungssystem
             _items.Add(_items.Count, item);
         }
 
-        public static string GetSerialized(SimpleCollection<T> collection) => JsonConvert.SerializeObject(collection);
+        public string GetSerialized() => JsonConvert.SerializeObject(this);
 
         public static SimpleCollection<T> GetDeserialized(string json) => JsonConvert.DeserializeObject<SimpleCollection<T>>(json);
 
