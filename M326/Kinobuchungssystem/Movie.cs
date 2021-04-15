@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kinobuchungssystem
+﻿namespace Kinobuchungssystem
 {
     public class Movie
     {
@@ -20,6 +13,11 @@ namespace Kinobuchungssystem
 			Title = title;
 			Genre = genre;
 			Length = length;
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }
