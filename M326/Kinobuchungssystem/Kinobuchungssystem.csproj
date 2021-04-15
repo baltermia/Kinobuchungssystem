@@ -66,6 +66,7 @@
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ICinemaType.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Show.cs" />
     <Compile Include="SimpleCollection.cs" />
