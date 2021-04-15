@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kinobuchungssystem
+﻿namespace Kinobuchungssystem
 {
     public class Customer
     {
@@ -18,6 +11,11 @@ namespace Kinobuchungssystem
 			Firstname = firstname;
 
 			Lastname = lastname;
+        }
+
+        public override string ToString()
+        {
+            return Firstname + ", " + Lastname;
         }
     }
 }
