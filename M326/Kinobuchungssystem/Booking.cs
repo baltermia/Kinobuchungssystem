@@ -11,5 +11,10 @@
             Show = show;
             Customer = customer;
         }
+
+        public override string ToString()
+        {
+            return Customer?.Firstname + " " + Customer?.Lastname + ": " + Show.ToString();
+        }
     }
 }
