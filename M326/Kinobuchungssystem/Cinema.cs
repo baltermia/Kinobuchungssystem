@@ -2,7 +2,7 @@
 
 namespace Kinobuchungssystem
 {
-    public class Cinema
+    public class Cinema : ICinemaType
     {
 		public readonly string Name;
 

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Kinobuchungssystem.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kinobuchungssystem"
+        mc:Ignorable="d"
+        Title="Hinzufügen" Height="450" Width="600">
+    <Border Padding="5">
+        <StackPanel>
+            <Grid>
+                <Label Name="lblTitle"
+                    Content="Placeholder" 
+                    FontSize="24" 
+                    Width="Auto" 
+                    FontWeight="Bold"
+                    HorizontalAlignment="Left"/>
+                <Label Name="lblCinema"
+                    Content="Placeholder"
+                    FontSize="16"
+                    Width="Auto"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"/>
+            </Grid>
+            
+        </StackPanel>
+    </Border>
+</Window>

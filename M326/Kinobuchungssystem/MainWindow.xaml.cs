@@ -48,35 +48,55 @@ namespace Kinobuchungssystem
 
         private void LoadDataGrids(Cinema cinema = null)
         {
+            cinema = cinema ?? GetSelectedCinema();
+
             // .ToList() is necessary as otherwise the list wouldn't be updated correctly (because of IEnumerable)
-            grdRoom.ItemsSource = (cinema ?? GetSelectedCinema()).Rooms.ToList();
-            grdMovie.ItemsSource = (cinema ?? GetSelectedCinema()).Movies.ToList();
-            grdCustomer.ItemsSource = (cinema ?? GetSelectedCinema()).Customers.ToList();
-            grdShow.ItemsSource = (cinema ?? GetSelectedCinema()).Shows.ToList();
-            grdBooking.ItemsSource = (cinema ?? GetSelectedCinema()).Bookings.ToList();
+            grdRoom.ItemsSource = cinema?.Rooms.ToList();
+            grdMovie.ItemsSource = cinema?.Movies.ToList();
+            grdCustomer.ItemsSource = cinema?.Customers.ToList();
+            grdShow.ItemsSource = cinema?.Shows.ToList();
+            grdBooking.ItemsSource = cinema?.Bookings.ToList();
+        }
+
+        private void ShowAddWindow<T>() where T : ICinemaType
+        {
+            AddWindow.GetInstance<T>(GetSelectedCinema()).ShowDialog();
+            LoadDataGrids();
+        }
+
+        private void ShowEditWindow(ICinemaType type)
+        {
+
         }
 
         private void cbxCinemas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LoadDataGrids();
+            Cinema cinema = GetSelectedCinema();
+            LoadDataGrids(cinema);
+
+            bool enabled = cinema != null;
+
+            btnNewRoom.IsEnabled = enabled;
+            btnNewMovie.IsEnabled = enabled;
+            btnNewCustomer.IsEnabled = enabled;
+            btnNewShow.IsEnabled = enabled;
+            btnNewBooking.IsEnabled = enabled;
         }
 
         #region Room Grid
         private void btnNewRoom_Click(object sender, RoutedEventArgs e)
         {
-            // Todo: Send Room to CreateObjectWindow
-            //LoadDataGrids();
+            ShowAddWindow((Room)((Button)e.Source).DataContext);
         }
 
         private void btnEditRoom_Click(object sender, RoutedEventArgs e)
         {
-            // Open EditWindow
-            //Room item = (Room)((Button)e.Source).DataContext;
+            ShowEditWindow((Room)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedCinema().Rooms.Remove((Room)((Button)e.Source).DataContext);
+            GetSelectedCinema()?.Rooms.Remove((Room)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
         #endregion
@@ -84,17 +104,18 @@ namespace Kinobuchungssystem
         #region Movie Grid
         private void btnNewMovie_Click(object sender, RoutedEventArgs e)
         {
+            ShowAddWindow((Movie)((Button)e.Source).DataContext);
 
         }
 
         private void btnEditMovie_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowEditWindow((Movie)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteMovie_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedCinema().Movies.Remove((Movie)((Button)e.Source).DataContext);
+            GetSelectedCinema()?.Movies.Remove((Movie)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
         #endregion
@@ -102,16 +123,17 @@ namespace Kinobuchungssystem
         #region Customer Grid
         private void btnNewCustomer_Click(object sender, RoutedEventArgs e)
         {
+            ShowAddWindow((Customer)((Button)e.Source).DataContext);
 
         }
         private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowEditWindow((Customer)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedCinema().Customers.Remove((Customer)((Button)e.Source).DataContext);
+            GetSelectedCinema()?.Customers.Remove((Customer)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
         #endregion
@@ -119,34 +141,33 @@ namespace Kinobuchungssystem
         #region Show Grid
         private void btnNewShow_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowAddWindow((Customer)((Button)e.Source).DataContext);
         }
         private void btnEditShow_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowEditWindow((Show)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteShow_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedCinema().Shows.Remove((Show)((Button)e.Source).DataContext);
+            GetSelectedCinema()?.Shows.Remove((Show)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
         #endregion
 
         #region Booking Grid
-        private void btnEditBooking_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnNewBooking_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowAddWindow((Booking)((Button)e.Source).DataContext);
+        }
+        private void btnEditBooking_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditWindow((Booking)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteBooking_Click(object sender, RoutedEventArgs e)
         {
-            GetSelectedCinema().Bookings.Remove((Booking)((Button)e.Source).DataContext);
+            GetSelectedCinema()?.Bookings.Remove((Booking)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
         #endregion

@@ -1,6 +1,6 @@
 ﻿namespace Kinobuchungssystem
 {
-    public class Customer
+    public class Customer : ICinemaType
     {
 		public readonly string Firstname;
 

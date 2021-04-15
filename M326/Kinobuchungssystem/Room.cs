@@ -1,6 +1,6 @@
 ﻿namespace Kinobuchungssystem
 {
-    public class Room
+    public class Room : ICinemaType
     {
 	    public readonly string Name;
 		

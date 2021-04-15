@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:Kinobuchungssystem"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="MainWindow" Height="560" Width="800" MinHeight="560" MinWidth="800">
+        Title="Kinobuchungssystem" 
+        Height="560" 
+        Width="800"
+        ResizeMode="NoResize">
 
     <Border Padding="5">
         <StackPanel>
             <Grid>
-                <Label Content="Tempname" 
+                <Label Content="Titel" 
                     FontSize="24" 
-                    Width="200" 
+                    Width="Auto" 
                     FontWeight="Bold"
                     HorizontalAlignment="Left"/>
 
@@ -24,6 +27,7 @@
                           VerticalAlignment="Center"
                           SelectionChanged="cbxCinemas_SelectionChanged"/>
             </Grid>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -49,21 +53,21 @@
                                         HorizontalAlignment="Right"
                                         Height="25"
                                         FontSize="14" 
-                                        Click="btnNewRoom_Click"/>
+                                        Click="btnNewRoom_Click"
+                                        IsEnabled="False"/>
                             </Grid>
                             <DataGrid Name="grdRoom" 
                                     AutoGenerateColumns="False" 
                                     CanUserAddRows="False"
                                     ScrollViewer.CanContentScroll="True" 
                                     Height="200" 
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     HeadersVisibility="None">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" 
-                                        Width="103"/>
+                                        IsReadOnly="True" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -101,21 +105,21 @@
                                         HorizontalAlignment="Right"
                                         Height="25"
                                         FontSize="14" 
-                                        Click="btnNewMovie_Click"/>
+                                        Click="btnNewMovie_Click"
+                                        IsEnabled="False"/>
                             </Grid>
                             <DataGrid Name="grdMovie" 
                                     AutoGenerateColumns="False" 
                                     CanUserAddRows="False"
                                     ScrollViewer.CanContentScroll="True" 
                                     Height="200" 
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     HeadersVisibility="None">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" 
-                                        Width="103"/>
+                                        IsReadOnly="True" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -153,21 +157,21 @@
                                         HorizontalAlignment="Right"
                                         Height="25"
                                         FontSize="14" 
-                                        Click="btnNewCustomer_Click"/>
+                                        Click="btnNewCustomer_Click"
+                                        IsEnabled="False"/>
                             </Grid>
                             <DataGrid Name="grdCustomer" 
                                     AutoGenerateColumns="False" 
                                     CanUserAddRows="False"
                                     ScrollViewer.CanContentScroll="True" 
                                     Height="200" 
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     HeadersVisibility="None">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" 
-                                        Width="103"/>
+                                        IsReadOnly="True" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -207,24 +211,26 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewShow" 
-                                        Content="Neu"
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
                                         Height="25"
-                                        FontSize="14" Margin="311,3,0,3" 
-                                        Click="btnNewShow_Click"/>
+                                        FontSize="14"
+                                        Click="btnNewShow_Click"
+                                        IsEnabled="False"/>
                             </Grid>
                             <DataGrid Name="grdShow" 
                                     AutoGenerateColumns="False" 
                                     CanUserAddRows="False"
                                     ScrollViewer.CanContentScroll="True" 
                                     Height="200" 
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     HeadersVisibility="None">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" 
-                                        Width="103"/>
+                                        IsReadOnly="True" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -262,21 +268,22 @@
                                         HorizontalAlignment="Right"
                                         Height="25"
                                         FontSize="14" 
-                                        Click="btnNewBooking_Click"/>
+                                        Click="btnNewBooking_Click"
+                                        IsEnabled="False"/>
                             </Grid>
                             <DataGrid Name="grdBooking" 
                                     AutoGenerateColumns="False" 
                                     CanUserAddRows="False"
                                     ScrollViewer.CanContentScroll="True" 
-                                    Height="200" 
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    VerticalContentAlignment="Stretch"
+                                    Height="200"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                                     HeadersVisibility="None">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" 
-                                        Width="103"/>
+                                        IsReadOnly="True" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
