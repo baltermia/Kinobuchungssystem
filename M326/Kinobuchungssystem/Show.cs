@@ -19,5 +19,10 @@ namespace Kinobuchungssystem
             Start = start;
             End = end;
         }
+
+        public override string ToString()
+        {
+            return Movie?.Title + " in " + Room.Name + " am " + Start.ToString("dd.MM.yyyy") + " von " + Start.ToString("HH:mm") + "-" + End.ToString("HH:mm");
+        }
     }
 }
