@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Kinobuchungssystem
 {
@@ -13,15 +12,12 @@ namespace Kinobuchungssystem
 
         public readonly DateTime End;
 
-        public readonly SimpleCollection<Booking> Bookings;
-
-        public Show(Room room, Movie movie, DateTime start, DateTime end, IEnumerable<Booking> bookings = null)
+        public Show(Room room, Movie movie, DateTime start, DateTime end)
         {
             Room = room;
             Movie = movie;
             Start = start;
             End = end;
-            Bookings = new SimpleCollection<Booking>(bookings);
         }
     }
 }
