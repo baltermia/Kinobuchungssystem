@@ -86,7 +86,7 @@ namespace Kinobuchungssystem
         #region Room Grid
         private void btnNewRoom_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow((Room)((Button)e.Source).DataContext);
+            ShowAddWindow<Room>();
         }
 
         private void btnEditRoom_Click(object sender, RoutedEventArgs e)
@@ -104,8 +104,7 @@ namespace Kinobuchungssystem
         #region Movie Grid
         private void btnNewMovie_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow((Movie)((Button)e.Source).DataContext);
-
+            ShowAddWindow<Movie>();
         }
 
         private void btnEditMovie_Click(object sender, RoutedEventArgs e)
@@ -123,8 +122,7 @@ namespace Kinobuchungssystem
         #region Customer Grid
         private void btnNewCustomer_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow((Customer)((Button)e.Source).DataContext);
-
+            ShowAddWindow<Customer>();
         }
         private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
         {
@@ -141,7 +139,7 @@ namespace Kinobuchungssystem
         #region Show Grid
         private void btnNewShow_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow((Customer)((Button)e.Source).DataContext);
+            ShowAddWindow<Show>();
         }
         private void btnEditShow_Click(object sender, RoutedEventArgs e)
         {
@@ -158,7 +156,7 @@ namespace Kinobuchungssystem
         #region Booking Grid
         private void btnNewBooking_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow((Booking)((Button)e.Source).DataContext);
+            ShowAddWindow<Booking>();
         }
         private void btnEditBooking_Click(object sender, RoutedEventArgs e)
         {

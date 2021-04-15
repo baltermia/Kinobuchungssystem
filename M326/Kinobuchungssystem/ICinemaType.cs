@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kinobuchungssystem
 {
-    public class ICinemaType
+    public interface ICinemaType
     {
+        void Get();
     }
 }
