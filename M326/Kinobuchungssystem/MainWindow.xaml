@@ -48,7 +48,8 @@
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
-                                        FontSize="14" Click="btnNewRoom_Click"/>
+                                        FontSize="14" 
+                                        Click="btnNewRoom_Click"/>
                             </Grid>
                             <DataGrid Name="grdRoom" 
                                     AutoGenerateColumns="False" 
@@ -87,7 +88,7 @@
                             </DataGrid>
                         </StackPanel>
                     </Border>
-                    
+
                     <Border Grid.Column="1" Padding="0 0 5 5">
                         <StackPanel>
                             <Grid>
@@ -99,7 +100,8 @@
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
-                                        FontSize="14"/>
+                                        FontSize="14" 
+                                        Click="btnNewMovie_Click"/>
                             </Grid>
                             <DataGrid Name="grdMovie" 
                                     AutoGenerateColumns="False" 
@@ -138,7 +140,7 @@
                             </DataGrid>
                         </StackPanel>
                     </Border>
-                    
+
                     <Border Grid.Column="3" Padding="0 0 0 5">
                         <StackPanel>
                             <Grid>
@@ -150,7 +152,8 @@
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
-                                        FontSize="14"/>
+                                        FontSize="14" 
+                                        Click="btnNewCustomer_Click"/>
                             </Grid>
                             <DataGrid Name="grdCustomer" 
                                     AutoGenerateColumns="False" 
@@ -204,11 +207,10 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewShow" 
-                                        Content="Neu" 
-                                        Width="75"
-                                        HorizontalAlignment="Right"
+                                        Content="Neu"
                                         Height="25"
-                                        FontSize="14"/>
+                                        FontSize="14" Margin="311,3,0,3" 
+                                        Click="btnNewShow_Click"/>
                             </Grid>
                             <DataGrid Name="grdShow" 
                                     AutoGenerateColumns="False" 
@@ -259,7 +261,8 @@
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
-                                        FontSize="14"/>
+                                        FontSize="14" 
+                                        Click="btnNewBooking_Click"/>
                             </Grid>
                             <DataGrid Name="grdBooking" 
                                     AutoGenerateColumns="False" 
