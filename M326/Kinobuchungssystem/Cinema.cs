@@ -1,9 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Kinobuchungssystem
 {
@@ -13,10 +8,27 @@ namespace Kinobuchungssystem
 
         public readonly SimpleCollection<Room> Rooms;
 
-		public Cinema(string name, IEnumerable<Room> rooms = null)
+        public readonly SimpleCollection<Show> Shows;
+
+        public readonly SimpleCollection<Movie> Movies;
+
+        public readonly SimpleCollection<Customer> Customers;
+
+        public readonly SimpleCollection<Booking> Bookings;
+
+        public Cinema(string name, IEnumerable<Room> rooms = null, IEnumerable<Movie> movies = null, IEnumerable<Customer> customers = null, IEnumerable<Booking> bookings= null, IEnumerable<Show> shows = null)
         {
             Name = name;
             Rooms = new SimpleCollection<Room>(rooms);
+            Shows = new SimpleCollection<Show>(shows);
+            Movies = new SimpleCollection<Movie>(movies);
+            Customers = new SimpleCollection<Customer>(customers);
+            Bookings = new SimpleCollection<Booking>(bookings);
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
