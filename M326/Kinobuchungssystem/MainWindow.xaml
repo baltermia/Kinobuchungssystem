@@ -5,12 +5,301 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kinobuchungssystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Closing="Window_Closing"
+        Title="MainWindow" Height="560" Width="800" MinHeight="560" MinWidth="800">
 
     <Border Padding="5">
         <StackPanel>
-            <Label FontSize="22" FontWeight="Bold">Kinobuchungssystem</Label>
-            <ComboBox Name="cbxCinemas" Width="200"/>
+            <Grid>
+                <Label Content="Tempname" 
+                    FontSize="24" 
+                    Width="200" 
+                    FontWeight="Bold"
+                    HorizontalAlignment="Left"/>
+
+                <ComboBox Name="cbxCinemas"
+                          FontSize="18"
+                          Width="250" 
+                          HorizontalAlignment="Right" 
+                          VerticalAlignment="Center"
+                          SelectionChanged="cbxCinemas_SelectionChanged"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Padding="0 0 5 5">
+                        <StackPanel>
+                            <Grid>
+                                <Label Content="Rooms" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                                <Button Name="btnNewRoom" 
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
+                                        Height="25"
+                                        FontSize="14" Click="btnNewRoom_Click"/>
+                            </Grid>
+                            <DataGrid Name="grdRoom" 
+                                    AutoGenerateColumns="False" 
+                                    CanUserAddRows="False"
+                                    ScrollViewer.CanContentScroll="True" 
+                                    Height="200" 
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    HeadersVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                        Binding="{Binding}" 
+                                        IsReadOnly="True" 
+                                        Width="103"/>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="btnEditRoom" 
+                                                    Content="Edit" 
+                                                    Click="btnEditRoom_Click" 
+                                                    Width="40"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <Button Name="btnDeleteRoom" 
+                                                    Content="Delete" 
+                                                    Click="btnDeleteRoom_Click" 
+                                                    Width="50"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Grid.Column="1" Padding="0 0 5 5">
+                        <StackPanel>
+                            <Grid>
+                                <Label Content="Filme" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                                <Button Name="btnNewMovie" 
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
+                                        Height="25"
+                                        FontSize="14"/>
+                            </Grid>
+                            <DataGrid Name="grdMovie" 
+                                    AutoGenerateColumns="False" 
+                                    CanUserAddRows="False"
+                                    ScrollViewer.CanContentScroll="True" 
+                                    Height="200" 
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    HeadersVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                        Binding="{Binding}" 
+                                        IsReadOnly="True" 
+                                        Width="103"/>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="btnEditMovie" 
+                                                    Content="Edit" 
+                                                    Click="btnEditMovie_Click" 
+                                                    Width="40"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <Button Name="btnDeleteMovie" 
+                                                    Content="Delete" 
+                                                    Click="btnDeleteMovie_Click" 
+                                                    Width="50"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Grid.Column="3" Padding="0 0 0 5">
+                        <StackPanel>
+                            <Grid>
+                                <Label Content="Kunden" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                                <Button Name="btnNewCustomer" 
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
+                                        Height="25"
+                                        FontSize="14"/>
+                            </Grid>
+                            <DataGrid Name="grdCustomer" 
+                                    AutoGenerateColumns="False" 
+                                    CanUserAddRows="False"
+                                    ScrollViewer.CanContentScroll="True" 
+                                    Height="200" 
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    HeadersVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                        Binding="{Binding}" 
+                                        IsReadOnly="True" 
+                                        Width="103"/>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="btnEditCustomer" 
+                                                    Content="Edit" 
+                                                    Click="btnEditCustomer_Click" 
+                                                    Width="40"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <Button Name="btnDeleteCustomer" 
+                                                    Content="Delete" 
+                                                    Click="btnDeleteCustomer_Click" 
+                                                    Width="50"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Padding="0 0 5 0">
+                        <StackPanel>
+                            <Grid>
+                                <Label Content="Vorführungen" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                                <Button Name="btnNewShow" 
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
+                                        Height="25"
+                                        FontSize="14"/>
+                            </Grid>
+                            <DataGrid Name="grdShow" 
+                                    AutoGenerateColumns="False" 
+                                    CanUserAddRows="False"
+                                    ScrollViewer.CanContentScroll="True" 
+                                    Height="200" 
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    HeadersVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                        Binding="{Binding}" 
+                                        IsReadOnly="True" 
+                                        Width="103"/>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="btnEditShow" 
+                                                    Content="Edit" 
+                                                    Click="btnEditShow_Click" 
+                                                    Width="40"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <Button Name="btnDeleteShow" 
+                                                    Content="Delete" 
+                                                    Click="btnDeleteShow_Click" 
+                                                    Width="50"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1">
+                        <StackPanel>
+                            <Grid>
+                                <Label Content="Buchungen" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                                <Button Name="btnNewBooking" 
+                                        Content="Neu" 
+                                        Width="75"
+                                        HorizontalAlignment="Right"
+                                        Height="25"
+                                        FontSize="14"/>
+                            </Grid>
+                            <DataGrid Name="grdBooking" 
+                                    AutoGenerateColumns="False" 
+                                    CanUserAddRows="False"
+                                    ScrollViewer.CanContentScroll="True" 
+                                    Height="200" 
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    HeadersVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                        Binding="{Binding}" 
+                                        IsReadOnly="True" 
+                                        Width="103"/>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="btnEditBooking" 
+                                                    Content="Edit" 
+                                                    Click="btnEditBooking_Click" 
+                                                    Width="40"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate >
+                                                <Button Name="btnDeleteBooking" 
+                                                    Content="Delete" 
+                                                    Click="btnDeleteBooking_Click" 
+                                                    Width="50"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
         </StackPanel>
     </Border>
 </Window>
