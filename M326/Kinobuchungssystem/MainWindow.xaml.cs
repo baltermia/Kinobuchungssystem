@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +33,88 @@ namespace Kinobuchungssystem
 
             controller = new Controller(DATA);
 
-            controller.Save(DATA);
-
             cbxCinemas.ItemsSource = controller.Cinemas;
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            controller.Save(DATA);
+        }
+
+        private Cinema GetSelectedCinema()
+        {
+            return (Cinema)cbxCinemas.SelectedItem;
+        }
+
+        private void LoadDataGrids(Cinema cinema = null)
+        {
+            grdRoom.ItemsSource = null;
+            grdRoom.ItemsSource = (cinema ?? GetSelectedCinema()).Rooms;
+
+            Cinema temp = GetSelectedCinema();
+        }
+
+        private void cbxCinemas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LoadDataGrids();
+        }
+
+        private void btnNewRoom_Click(object sender, RoutedEventArgs e)
+        {
+            GetSelectedCinema().Rooms.Add(new Room("Temp-Room", 2));
+            LoadDataGrids();
+        }
+
+        private void btnEditRoom_Click(object sender, RoutedEventArgs e)
+        {
+            // Open EditWindow
+            // Room item = (Room)((Button)e.Source).DataContext;
+        }
+
+        private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
+        {
+            GetSelectedCinema().Rooms.Remove((Room)((Button)e.Source).DataContext);
+            LoadDataGrids();
+        }
+
+        private void btnDeleteMovie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditMovie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditShow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteShow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditBooking_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteBooking_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
