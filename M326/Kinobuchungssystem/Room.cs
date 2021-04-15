@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kinobuchungssystem
+﻿namespace Kinobuchungssystem
 {
     public class Room
     {
@@ -17,6 +10,11 @@ namespace Kinobuchungssystem
         {
             Name = name;
             Seats = seats;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
