@@ -14,7 +14,7 @@
 
         public override string ToString()
         {
-            return Customer?.Firstname + " " + Customer?.Lastname + ": " + Show.ToString();
+            return Customer?.Firstname + " " + Customer?.Lastname + ": " + Show?.ToString();
         }
     }
 }
