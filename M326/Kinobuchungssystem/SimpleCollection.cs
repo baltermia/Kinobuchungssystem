@@ -41,7 +41,7 @@ namespace Kinobuchungssystem
         /// <param name="item"></param>
         public void Add(T item)
         {
-            _items.Add(Enumerable.Range(1, int.MaxValue).Except(_items.Keys).First(), item);
+            _items.Add(Enumerable.Range(0, int.MaxValue).Except(_items.Keys).First(), item);
         }
 
         /// <summary>
