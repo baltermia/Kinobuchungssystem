@@ -9,7 +9,7 @@ namespace Kinobuchungssystem
 {
     public interface IEditObject
     {
-        StackPanel GetPanel(Cinema cinemas = null);
+        StackPanel GetPanel(Cinema cinema = null);
 
         void EditFromPanel(StackPanel panel);
     }
