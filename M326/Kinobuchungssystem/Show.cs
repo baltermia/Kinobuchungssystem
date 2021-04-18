@@ -100,7 +100,7 @@ namespace Kinobuchungssystem
             return new Show(room, movie, start, end);
         }
 
-        public StackPanel GetPanel(Cinema cinema = null)
+        public StackPanel GetPanel(Cinema cinema)
         {
             return CreatePanel(cinema, Room, Movie, Start, End);
         }
@@ -112,8 +112,8 @@ namespace Kinobuchungssystem
             DateTime start = ((DateTimePicker)panel.Children[5]).Value ?? DateTime.MinValue;
             DateTime end = ((DateTimePicker)panel.Children[7]).Value ?? DateTime.MaxValue;
 
-            Room = room == null ? Room : room;
-            Movie = movie == null ? Movie : movie;
+            Room = room ?? Room;
+            Movie = movie ?? Movie;
             Start = start == null ? Start : start;
             End = end == null ? End : end;
         }
