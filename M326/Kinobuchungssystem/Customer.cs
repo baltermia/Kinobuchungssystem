@@ -4,13 +4,13 @@ using System.Windows.Controls;
 
 namespace Kinobuchungssystem
 {
-    public class Customer
+    public class Customer : IEditObject
     {
-		public readonly string Firstname;
+		public string Firstname { get; private set; }
 
-		public readonly string Lastname;
+		public string Lastname { get; private set; }
 
-		public Customer(string firstname, string lastname)
+        public Customer(string firstname, string lastname)
         {
 			Firstname = firstname;
 
@@ -22,24 +22,30 @@ namespace Kinobuchungssystem
             return Firstname + ", " + Lastname;
         }
 
-        public static StackPanel GetPanel()
+        private static StackPanel CreatePanel(string firstname = null, string lastname = null)
         {
             StackPanel panel = new StackPanel();
 
             TextBlock tbkFirstname = new TextBlock()
             {
-                Text = "Name",
+                Text = "Vorname",
                 FontWeight = FontWeights.Bold
             };
-            TextBox tbxFirstname = new TextBox();
+            TextBox tbxFirstname = new TextBox()
+            {
+                Text = firstname
+            };
 
             TextBlock tbkLastname = new TextBlock()
             {
-                Text = "Sitzplätze",
+                Text = "Nachname",
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(0, 10, 0, 0)
             };
-            TextBox tbxLastname = new TextBox();
+            TextBox tbxLastname = new TextBox()
+            {
+                Text = lastname
+            };
 
             panel.Children.Add(tbkFirstname);
             panel.Children.Add(tbxFirstname);
@@ -49,12 +55,32 @@ namespace Kinobuchungssystem
             return panel;
         }
 
+        public static StackPanel GetEmptyPanel()
+        {
+            return CreatePanel();
+        }
+
         public static Customer GetNewFromGrid(Panel panel)
         {
             string firstname = ((TextBox)panel.Children[1]).Text;
             string lastname = ((TextBox)panel.Children[3]).Text;
 
             return new Customer(firstname, lastname);
+        }
+
+        public StackPanel GetPanel(Cinema cinema = null)
+        {
+            return CreatePanel(Firstname, Lastname);
+        }
+
+        public void EditFromPanel(StackPanel panel)
+        {
+            string firstname = ((TextBox)panel.Children[1]).Text;
+            string lastname = ((TextBox)panel.Children[3]).Text;
+
+            Firstname = firstname == "" || firstname == null ? Firstname : firstname;
+            Lastname = lastname == "" || lastname == null ? Lastname : lastname;
+
         }
     }
 }
