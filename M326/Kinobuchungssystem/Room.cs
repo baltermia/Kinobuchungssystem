@@ -32,7 +32,10 @@ namespace Kinobuchungssystem
                 Text = "Name",
                 FontWeight = FontWeights.Bold
             };
-            TextBox tbxName = new TextBox();
+            TextBox tbxName = new TextBox()
+            {
+                Text = name
+            };
 
             TextBlock tbkSeats = new TextBlock()
             {
@@ -42,7 +45,8 @@ namespace Kinobuchungssystem
             };
             IntegerUpDown numSeats = new IntegerUpDown() 
             { 
-                ParsingNumberStyle = NumberStyles.Integer 
+                ParsingNumberStyle = NumberStyles.Integer,
+                Value = seats
             };
 
             panel.Children.Add(tbkName);
