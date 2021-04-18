@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Kinobuchungssystem
 {
-    public class Cinema : ICinemaType
+    public class Cinema
     {
 		public readonly string Name;
 
@@ -29,6 +31,30 @@ namespace Kinobuchungssystem
         public override string ToString()
         {
             return Name;
+        }
+
+        public static StackPanel GetPanel()
+        {
+            StackPanel panel = new StackPanel();
+
+            TextBlock tbkName = new TextBlock()
+            {
+                Text = "Name",
+                FontWeight = FontWeights.Bold
+            };
+            TextBox tbxName = new TextBox();
+
+            panel.Children.Add(tbkName);
+            panel.Children.Add(tbxName);
+
+            return panel;
+        }
+
+        public static Cinema GetNewFromPanel(StackPanel panel)
+        {
+            string name = ((TextBox)panel.Children[1]).Text;
+
+            return new Cinema(name);
         }
     }
 }
