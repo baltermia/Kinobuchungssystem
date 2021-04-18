@@ -77,7 +77,7 @@ namespace Kinobuchungssystem
         public void EditFromPanel(StackPanel panel)
         {
             string name = ((TextBox)panel.Children[1]).Text;
-            int seats = ((IntegerUpDown)panel.Children[5]).Value ?? -1;
+            int seats = ((IntegerUpDown)panel.Children[3]).Value ?? -1;
 
             Name = name == "" || name == null ? Name : name;
             Seats = seats != -1 ? seats : Seats;
