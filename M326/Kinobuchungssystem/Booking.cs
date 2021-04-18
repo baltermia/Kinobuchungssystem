@@ -1,4 +1,5 @@
 ﻿namespace Kinobuchungssystem
+
 {
     public class Booking : ICinemaType
     {
