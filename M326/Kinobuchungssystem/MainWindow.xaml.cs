@@ -25,7 +25,7 @@ namespace Kinobuchungssystem
     {
         private readonly Controller controller;
 
-        private const string DATA = @"..\\..\\Data.json";
+        private const string DATA = @"..\..\Data.json";
 
         public MainWindow()
         {

@@ -109,13 +109,13 @@ namespace Kinobuchungssystem
         {
             Room room = (Room)((ComboBox)panel.Children[1]).SelectedItem;
             Movie movie = (Movie)((ComboBox)panel.Children[3]).SelectedItem;
-            DateTime start = ((DateTimePicker)panel.Children[5]).Value ?? DateTime.MinValue;
-            DateTime end = ((DateTimePicker)panel.Children[7]).Value ?? DateTime.MaxValue;
+            DateTime? start = ((DateTimePicker)panel.Children[5]).Value;
+            DateTime? end = ((DateTimePicker)panel.Children[7]).Value;
 
             Room = room ?? Room;
             Movie = movie ?? Movie;
-            Start = start == null ? Start : start;
-            End = end == null ? End : end;
+            Start = start ?? Start;
+            End = end ?? End;
         }
     }
 }
