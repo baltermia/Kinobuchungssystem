@@ -73,7 +73,7 @@ namespace Kinobuchungssystem
             return panel;
         }
 
-		public static StackPanel GetPanel()
+		public static StackPanel GetEmptyPanel()
         {
             return CreatePanel();
         }
