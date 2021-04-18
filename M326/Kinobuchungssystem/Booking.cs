@@ -3,11 +3,11 @@ using System.Windows.Controls;
 
 namespace Kinobuchungssystem
 {
-    public class Booking
+    public class Booking : IEditObject
     {
-        public readonly Show Show;
+        public Show Show { get; private set; }
 
-        public readonly Customer Customer;
+        public Customer Customer { get; private set; }
 
         public Booking(Show show, Customer customer = null)
         {
@@ -20,7 +20,7 @@ namespace Kinobuchungssystem
             return Customer?.Firstname + " " + Customer?.Lastname + ": " + Show?.ToString();
         }
 
-        public static StackPanel GetPanel(Cinema cinema)
+        private static StackPanel CreatePanel(Cinema cinema, Show show = null, Customer customer = null)
         {
             StackPanel panel = new StackPanel();
 
@@ -31,7 +31,8 @@ namespace Kinobuchungssystem
             };
             ComboBox cbxShow = new ComboBox()
             {
-                ItemsSource = cinema.Shows
+                ItemsSource = cinema.Shows,
+                SelectedItem = show
             };
 
             TextBlock tbkCustomer = new TextBlock()
@@ -41,7 +42,8 @@ namespace Kinobuchungssystem
             };
             ComboBox cbxCustomer = new ComboBox()
             {
-                ItemsSource = cinema.Customers
+                ItemsSource = cinema.Customers,
+                SelectedItem = customer
             };
 
             panel.Children.Add(tbkShow);
@@ -51,6 +53,10 @@ namespace Kinobuchungssystem
 
             return panel;
         }
+        public static StackPanel GetEmptyPanel(Cinema cinema)
+        {
+            return CreatePanel(cinema);
+        }
 
         public static Booking GetNewFromPanel(StackPanel panel)
         {
@@ -58,6 +64,20 @@ namespace Kinobuchungssystem
             Customer customer = (Customer)((ComboBox)panel.Children[3]).SelectedItem;
 
             return new Booking(show, customer);
+        }
+
+        public StackPanel GetPanel(Cinema cinema)
+        {
+            return CreatePanel(cinema, Show, Customer);
+        }
+
+        public void EditFromPanel(StackPanel panel)
+        {
+            Show show = (Show)((ComboBox)panel.Children[1]).SelectedItem;
+            Customer customer = (Customer)((ComboBox)panel.Children[3]).SelectedItem;
+
+            Show = show ?? Show;
+            Customer = customer ?? Customer;
         }
     }
 }
