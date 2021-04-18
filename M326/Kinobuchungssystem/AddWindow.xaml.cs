@@ -19,24 +19,38 @@ namespace Kinobuchungssystem
     /// </summary>
     public partial class AddWindow : Window
     {
-        private Cinema Cinema { get; }
-
-        private ICinemaType Type { get; }
-
-        private AddWindow(Cinema cinema) 
+        public AddWindow(StackPanel panel)
         {
             InitializeComponent();
 
-            Cinema = cinema;
-            //Type = cinemaType; // Todo: this
+            brdFields.Child = panel;
 
-            ////lblTitle.Content = type.Name + " hinzufügen";
-            //lblCinema.Content = cinema?.Name ?? "";
+            ChangeToSize();
         }
 
-        public static AddWindow GetInstance<T>(Cinema cinema) where T : ICinemaType
+        public StackPanel ShowWindow()
         {
-            return new AddWindow(cinema);
+            if (ShowDialog() != true)
+            {
+                return null;
+            }
+
+            return brdFields.Child as StackPanel;
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ChangeToSize();
+        }
+
+        private void ChangeToSize()
+        {
+            Height = lblTitle.ActualHeight + btnCreate.ActualHeight + brdFields.ActualHeight + 70;
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }
