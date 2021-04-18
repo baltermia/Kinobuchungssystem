@@ -5,15 +5,15 @@ using Xceed.Wpf.Toolkit;
 
 namespace Kinobuchungssystem
 {
-    public class Show
+    public class Show : IEditObject
     {
-        public readonly Room Room;
+        public Room Room { get; private set; }
 
-        public readonly Movie Movie;
+        public Movie Movie { get; private set; }
 
-        public readonly DateTime Start;
+        public DateTime Start { get; private set; }
 
-        public readonly DateTime End;
+        public DateTime End { get; private set; }
 
         public Show(Room room, Movie movie, DateTime start, DateTime end)
         {
@@ -28,7 +28,7 @@ namespace Kinobuchungssystem
             return Movie?.Title + " in " + Room?.Name + " am " + Start.ToString("dd.MM.yyyy") + " von " + Start.ToString("HH:mm") + "-" + End.ToString("HH:mm");
         }
 
-        public static StackPanel GetPanel(Cinema cinema)
+        private static StackPanel CreatePanel(Cinema cinema, Room room = null, Movie movie = null, DateTime? start = null, DateTime? end = null)
         {
             StackPanel panel = new StackPanel();
 
@@ -39,7 +39,8 @@ namespace Kinobuchungssystem
             };
             ComboBox cbxRoom = new ComboBox()
             {
-                ItemsSource = cinema.Rooms
+                ItemsSource = cinema.Rooms,
+                SelectedItem = room
             };
 
             TextBlock tbkMovie= new TextBlock()
@@ -49,7 +50,8 @@ namespace Kinobuchungssystem
             };
             ComboBox cbxMovie = new ComboBox()
             {
-                ItemsSource = cinema.Movies
+                ItemsSource = cinema.Movies,
+                SelectedItem = movie
             };
 
             TextBlock tbkStart = new TextBlock()
@@ -57,14 +59,20 @@ namespace Kinobuchungssystem
                 Text = "Start",
                 FontWeight = FontWeights.Bold
             };
-            DateTimePicker dpkStart = new DateTimePicker();
+            DateTimePicker dpkStart = new DateTimePicker()
+            {
+                Value = start
+            };
 
             TextBlock tbkEnd = new TextBlock()
             {
                 Text = "Ende",
                 FontWeight = FontWeights.Bold
             };
-            DateTimePicker dpkEnd = new DateTimePicker();
+            DateTimePicker dpkEnd = new DateTimePicker()
+            {
+                Value = end
+            };
 
             panel.Children.Add(tbkRoom);
             panel.Children.Add(cbxRoom);
@@ -77,15 +85,37 @@ namespace Kinobuchungssystem
 
             return panel;
         }
+        public static StackPanel GetEmptyPanel(Cinema cinema)
+        {
+            return CreatePanel(cinema);
+        }
 
         public static Show GetNewFromPanel(StackPanel panel)
         {
             Room room = (Room)((ComboBox)panel.Children[1]).SelectedItem;
             Movie movie = (Movie)((ComboBox)panel.Children[3]).SelectedItem;
-            DateTime start = ((DatePicker)panel.Children[5]).SelectedDate ?? DateTime.MinValue;
-            DateTime end = ((DatePicker)panel.Children[7]).SelectedDate ?? DateTime.MaxValue;
+            DateTime start = ((DateTimePicker)panel.Children[5]).Value ?? DateTime.MinValue;
+            DateTime end = ((DateTimePicker)panel.Children[7]).Value ?? DateTime.MaxValue;
 
             return new Show(room, movie, start, end);
+        }
+
+        public StackPanel GetPanel(Cinema cinema = null)
+        {
+            return CreatePanel(cinema, Room, Movie, Start, End);
+        }
+
+        public void EditFromPanel(StackPanel panel)
+        {
+            Room room = (Room)((ComboBox)panel.Children[1]).SelectedItem;
+            Movie movie = (Movie)((ComboBox)panel.Children[3]).SelectedItem;
+            DateTime start = ((DateTimePicker)panel.Children[5]).Value ?? DateTime.MinValue;
+            DateTime end = ((DateTimePicker)panel.Children[7]).Value ?? DateTime.MaxValue;
+
+            Room = room == null ? Room : room;
+            Movie = movie == null ? Movie : movie;
+            Start = start == null ? Start : start;
+            End = end == null ? End : end;
         }
     }
 }
