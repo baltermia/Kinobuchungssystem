@@ -14,18 +14,33 @@
     <Border Padding="5">
         <StackPanel>
             <Grid>
-                <Label Content="Titel" 
+                <Label Content="Kinobuchungssystem" 
                     FontSize="24" 
                     Width="Auto" 
                     FontWeight="Bold"
                     HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ComboBox Name="cbxCinemas"
+                        FontSize="18"
+                        Width="250"  
+                        VerticalAlignment="Center"
+                        SelectionChanged="cbxCinemas_SelectionChanged"
+                              Margin="0 0 10 0"/>
 
-                <ComboBox Name="cbxCinemas"
-                          FontSize="18"
-                          Width="250" 
-                          HorizontalAlignment="Right" 
-                          VerticalAlignment="Center"
-                          SelectionChanged="cbxCinemas_SelectionChanged"/>
+                    <Button Name="btnNewCinema"
+                        Content="New" 
+                        Width="100"
+                        Height="30"
+                        FontSize="18" 
+                        Click="btnNewCinema_Click"
+                        Margin="0 0 10 0"/>
+                    <Button Name="btnDeleteCinema"
+                        Content="Delete" 
+                        Width="100"
+                        Height="30"
+                        FontSize="18" 
+                        Click="btnDeleteCinema_Click"/>
+                </StackPanel>
             </Grid>
 
             <Grid>
@@ -48,7 +63,7 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewRoom" 
-                                        Content="Neu" 
+                                        Content="New" 
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
@@ -67,7 +82,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" />
+                                        IsReadOnly="True" 
+                                        MinWidth="155"/>
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -100,7 +116,7 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewMovie" 
-                                        Content="Neu" 
+                                        Content="New" 
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
@@ -119,7 +135,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" />
+                                        IsReadOnly="True"  
+                                        MinWidth="155"/>
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -152,7 +169,7 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewCustomer" 
-                                        Content="Neu" 
+                                        Content="New" 
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
@@ -171,7 +188,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" />
+                                        IsReadOnly="True" 
+                                        MinWidth="155" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -211,7 +229,7 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewShow" 
-                                        Content="Neu" 
+                                        Content="New" 
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
@@ -230,7 +248,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" />
+                                        IsReadOnly="True" 
+                                        MinWidth="284" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -263,7 +282,7 @@
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewBooking" 
-                                        Content="Neu" 
+                                        Content="New" 
                                         Width="75"
                                         HorizontalAlignment="Right"
                                         Height="25"
@@ -283,7 +302,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
-                                        IsReadOnly="True" />
+                                        IsReadOnly="True"  
+                                        MinWidth="284" />
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>

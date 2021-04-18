@@ -1,266 +1,115 @@
 [
   {
-    "Name": "Kino 1",
+    "Name": "Testkino",
     "Rooms": [
       {
-        "Name": "Room A",
-        "Seats": 200
+        "Name": "",
+        "Seats": -1
       },
       {
-        "Name": "Room B",
-        "Seats": 450
+        "Name": "Test",
+        "Seats": 1
       }
     ],
     "Shows": [
       {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T08:54:37.477463+02:00",
-        "End": "2021-04-15T08:54:37.477463+02:00"
+        "Room": null,
+        "Movie": null,
+        "Start": "0001-01-01T00:00:00",
+        "End": "9999-12-31T23:59:59.9999999"
       },
       {
         "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
+          "Name": "Test",
+          "Seats": 1
         },
         "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
+          "Title": "Test",
+          "Genre": "Test",
+          "Length": 123
         },
-        "Start": "2021-04-11T08:54:37.6238596+02:00",
-        "End": "2021-04-15T08:54:37.6238596+02:00"
+        "Start": "2021-04-17T14:31:38",
+        "End": "2021-04-10T16:31:39"
       },
       {
         "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
+          "Name": "Test",
+          "Seats": 1
         },
         "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
+          "Title": "Test",
+          "Genre": "Test",
+          "Length": 123
         },
-        "Start": "2021-04-11T08:54:37.7806426+02:00",
-        "End": "2021-04-15T08:54:37.7806426+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:37.2282851+02:00",
-        "End": "2021-04-15T09:22:37.2282851+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:37.3594499+02:00",
-        "End": "2021-04-15T09:22:37.3594499+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:37.5156449+02:00",
-        "End": "2021-04-15T09:22:37.5156449+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:37.6577399+02:00",
-        "End": "2021-04-15T09:22:37.6577399+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:37.9491035+02:00",
-        "End": "2021-04-15T09:22:37.9491035+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:38.1089286+02:00",
-        "End": "2021-04-15T09:22:38.1089286+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:38.3813888+02:00",
-        "End": "2021-04-15T09:22:38.3813888+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:38.5377933+02:00",
-        "End": "2021-04-15T09:22:38.5377933+02:00"
-      },
-      {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:22:38.8410039+02:00",
-        "End": "2021-04-15T09:22:38.8410039+02:00"
+        "Start": "2021-04-18T23:32:16",
+        "End": "2021-04-07T11:20:17"
       }
     ],
     "Movies": [
       {
-        "Title": "Temp-Movie",
-        "Genre": "Temp-Genre",
-        "Length": 200
+        "Title": "Test",
+        "Genre": "Test",
+        "Length": 123
       }
     ],
     "Customers": [
       {
-        "Firstname": "Temp-name",
-        "Lastname": "Temp-last"
+        "Firstname": "Test",
+        "Lastname": "Test2"
       }
     ],
     "Bookings": [
       {
+        "Show": null,
+        "Customer": null
+      },
+      {
         "Show": {
-          "Room": {
-            "Name": "Temp-Room",
-            "Seats": 200
-          },
-          "Movie": {
-            "Title": "Temp-Movie",
-            "Genre": "Temp-Genre",
-            "Length": 200
-          },
-          "Start": "2021-04-11T08:54:33.053569+02:00",
-          "End": "2021-04-15T08:54:33.053569+02:00"
+          "Room": null,
+          "Movie": null,
+          "Start": "0001-01-01T00:00:00",
+          "End": "9999-12-31T23:59:59.9999999"
         },
         "Customer": {
-          "Firstname": "Temp-name",
-          "Lastname": "Temp-last"
+          "Firstname": "Test",
+          "Lastname": "Test2"
         }
       }
     ]
   },
   {
-    "Name": "Kino 2",
+    "Name": "Test",
     "Rooms": [],
     "Shows": [],
-    "Movies": [
-      {
-        "Title": "Temp-Movie",
-        "Genre": "Temp-Genre",
-        "Length": 200
-      }
-    ],
-    "Customers": [
-      {
-        "Firstname": "Temp-name",
-        "Lastname": "Temp-last"
-      }
-    ],
-    "Bookings": [
-      {
-        "Show": {
-          "Room": {
-            "Name": "Temp-Room",
-            "Seats": 200
-          },
-          "Movie": {
-            "Title": "Temp-Movie",
-            "Genre": "Temp-Genre",
-            "Length": 200
-          },
-          "Start": "2021-04-11T08:54:54.3663482+02:00",
-          "End": "2021-04-15T08:54:54.3663482+02:00"
-        },
-        "Customer": {
-          "Firstname": "Temp-name",
-          "Lastname": "Temp-last"
-        }
-      }
-    ]
+    "Movies": [],
+    "Customers": [],
+    "Bookings": []
   },
   {
-    "Name": "Kino 3",
+    "Name": "Test",
     "Rooms": [],
-    "Shows": [
+    "Shows": [],
+    "Movies": [],
+    "Customers": [],
+    "Bookings": []
+  },
+  {
+    "Name": "Neu kim",
+    "Rooms": [
       {
-        "Room": {
-          "Name": "Temp-Room",
-          "Seats": 200
-        },
-        "Movie": {
-          "Title": "Temp-Movie",
-          "Genre": "Temp-Genre",
-          "Length": 200
-        },
-        "Start": "2021-04-11T09:11:54.9416798+02:00",
-        "End": "2021-04-15T09:11:54.9416798+02:00"
+        "Name": "",
+        "Seats": -1
+      },
+      {
+        "Name": "",
+        "Seats": -1
+      },
+      {
+        "Name": "",
+        "Seats": -1
       }
     ],
+    "Shows": [],
     "Movies": [],
     "Customers": [],
     "Bookings": []

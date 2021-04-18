@@ -25,7 +25,7 @@ namespace Kinobuchungssystem
     {
         private readonly Controller controller;
 
-        private const string DATA = @"C:\Users\clopathba\Documents\GitHub\M326\M326\Kinobuchungssystem\Data.json";
+        private const string DATA = @"..\\..\\Data.json";
 
         public MainWindow()
         {
@@ -33,7 +33,7 @@ namespace Kinobuchungssystem
 
             controller = new Controller(DATA);
 
-            cbxCinemas.ItemsSource = controller.Cinemas;
+            LoadCombobox();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -58,15 +58,20 @@ namespace Kinobuchungssystem
             grdBooking.ItemsSource = cinema?.Bookings.ToList();
         }
 
-        private void ShowAddWindow<T>() where T : ICinemaType
+        private void LoadCombobox()
         {
-            AddWindow.GetInstance<T>(GetSelectedCinema()).ShowDialog();
-            LoadDataGrids();
+            cbxCinemas.ItemsSource = null;
+            cbxCinemas.ItemsSource = controller.Cinemas.ToList();
         }
 
-        private void ShowEditWindow(ICinemaType type)
+        private void ShowEditWindow(IEditObject obj)
         {
+            bool? result = new EditWindow(obj, GetSelectedCinema()).ShowDialog();
 
+            if (result == true)
+            {
+                LoadDataGrids();
+            }
         }
 
         private void cbxCinemas_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,7 +91,17 @@ namespace Kinobuchungssystem
         #region Room Grid
         private void btnNewRoom_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow<Room>();
+            StackPanel panel = new AddWindow(Room.GetEmptyPanel()).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Room room = Room.GetNewFromGrid(panel);
+
+            GetSelectedCinema().Rooms.Add(room);
+            LoadDataGrids();
         }
 
         private void btnEditRoom_Click(object sender, RoutedEventArgs e)
@@ -104,7 +119,17 @@ namespace Kinobuchungssystem
         #region Movie Grid
         private void btnNewMovie_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow<Movie>();
+            StackPanel panel = new AddWindow(Movie.GetEmptyPanel()).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Movie movie = Movie.GetNewFromPanel(panel);
+
+            GetSelectedCinema().Movies.Add(movie);
+            LoadDataGrids();
         }
 
         private void btnEditMovie_Click(object sender, RoutedEventArgs e)
@@ -122,7 +147,17 @@ namespace Kinobuchungssystem
         #region Customer Grid
         private void btnNewCustomer_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow<Customer>();
+            StackPanel panel = new AddWindow(Customer.GetEmptyPanel()).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Customer customer = Customer.GetNewFromGrid(panel);
+
+            GetSelectedCinema().Customers.Add(customer);
+            LoadDataGrids();
         }
         private void btnEditCustomer_Click(object sender, RoutedEventArgs e)
         {
@@ -139,7 +174,17 @@ namespace Kinobuchungssystem
         #region Show Grid
         private void btnNewShow_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow<Show>();
+            StackPanel panel = new AddWindow(Kinobuchungssystem.Show.GetEmptyPanel(GetSelectedCinema())).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Show show = Kinobuchungssystem.Show.GetNewFromPanel(panel);
+
+            GetSelectedCinema().Shows.Add(show);
+            LoadDataGrids();
         }
         private void btnEditShow_Click(object sender, RoutedEventArgs e)
         {
@@ -156,7 +201,17 @@ namespace Kinobuchungssystem
         #region Booking Grid
         private void btnNewBooking_Click(object sender, RoutedEventArgs e)
         {
-            ShowAddWindow<Booking>();
+            StackPanel panel = new AddWindow(Booking.GetEmptyPanel(GetSelectedCinema())).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Booking booking= Booking.GetNewFromPanel(panel);
+
+            GetSelectedCinema().Bookings.Add(booking);
+            LoadDataGrids();
         }
         private void btnEditBooking_Click(object sender, RoutedEventArgs e)
         {
@@ -167,6 +222,41 @@ namespace Kinobuchungssystem
         {
             GetSelectedCinema()?.Bookings.Remove((Booking)((Button)e.Source).DataContext);
             LoadDataGrids();
+        }
+        #endregion
+
+        #region Cinema
+        private void btnNewCinema_Click(object sender, RoutedEventArgs e)
+        {
+            StackPanel panel = new AddWindow(Cinema.GetPanel()).ShowWindow();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            Cinema cinema = Cinema.GetNewFromPanel(panel);
+            controller.Cinemas.Add(cinema);
+
+            LoadCombobox();
+
+            cbxCinemas.SelectedItem = cbxCinemas.Items[cbxCinemas.Items.Count - 1];
+        }
+
+        private void btnDeleteCinema_Click(object sender, RoutedEventArgs e)
+        {
+            Cinema cinema = GetSelectedCinema();
+
+            MessageBoxResult result = MessageBox.Show("Sind Sie sicher, dass Sie dieses Kino löschen wollen? Kino: " + cinema.ToString(), 
+                "Kino löschen", 
+                MessageBoxButton.YesNo, 
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                controller.Cinemas.Remove(cinema);
+                LoadCombobox();
+            }
         }
         #endregion
     }
