@@ -78,7 +78,8 @@
                                     Height="200" 
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    HeadersVisibility="None">
+                                    HeadersVisibility="None"
+                                    CanUserDeleteRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
@@ -131,7 +132,8 @@
                                     Height="200" 
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    HeadersVisibility="None">
+                                    HeadersVisibility="None"
+                                    CanUserDeleteRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
@@ -184,7 +186,8 @@
                                     Height="200" 
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    HeadersVisibility="None">
+                                    HeadersVisibility="None"
+                                    CanUserDeleteRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
@@ -244,7 +247,8 @@
                                     Height="200" 
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    HeadersVisibility="None">
+                                    HeadersVisibility="None"
+                                    CanUserDeleteRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
@@ -298,7 +302,8 @@
                                     Height="200"
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    HeadersVisibility="None">
+                                    HeadersVisibility="None"
+                                    CanUserDeleteRows="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn 
                                         Binding="{Binding}" 
