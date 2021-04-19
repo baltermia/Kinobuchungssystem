@@ -1,84 +1,193 @@
 [
   {
-    "Name": "Testkino",
+    "Name": "Kino Apollo",
     "Rooms": [
       {
-        "Name": "",
-        "Seats": -1
+        "Name": "Saal A1",
+        "Seats": 100
       },
       {
-        "Name": "Test",
-        "Seats": 1
+        "Name": "Saal A2",
+        "Seats": 50
+      },
+      {
+        "Name": "Saal A3",
+        "Seats": 15
+      },
+      {
+        "Name": "Saal B1",
+        "Seats": 250
+      },
+      {
+        "Name": "Saal B2",
+        "Seats": 175
+      },
+      {
+        "Name": "Saal B3",
+        "Seats": 150
+      },
+      {
+        "Name": "Saal C1",
+        "Seats": 150
       }
     ],
     "Shows": [
       {
-        "Room": null,
-        "Movie": null,
-        "Start": "0001-01-01T00:00:00",
-        "End": "9999-12-31T23:59:59.9999999"
+        "Room": {
+          "Name": "Saal A1",
+          "Seats": 100
+        },
+        "Movie": {
+          "Title": "Gone with the Wild",
+          "Genre": "Drama, History, Romance",
+          "Length": 14280
+        },
+        "Start": "2021-04-22T08:00:00",
+        "End": "2021-04-22T13:00:00"
       },
       {
         "Room": {
-          "Name": "Test",
-          "Seats": 1
+          "Name": "Saal A2",
+          "Seats": 50
         },
         "Movie": {
-          "Title": "Test",
-          "Genre": "Test",
-          "Length": 123
+          "Title": "The Wizard of Oz",
+          "Genre": "Adventure, Family, Fantasy",
+          "Length": 6120
         },
-        "Start": "2021-04-17T14:31:38",
-        "End": "2021-04-10T16:31:39"
+        "Start": "2021-04-21T12:00:00",
+        "End": "2021-04-21T14:00:00"
       },
       {
         "Room": {
-          "Name": "Test",
-          "Seats": 1
+          "Name": "Saal A3",
+          "Seats": 15
         },
         "Movie": {
-          "Title": "Test",
-          "Genre": "Test",
-          "Length": 123
+          "Title": "Lawrence of Arabia",
+          "Genre": "Adventure, Biography, Drama",
+          "Length": 13681
         },
-        "Start": "2021-04-18T23:32:16",
-        "End": "2021-04-07T11:20:17"
+        "Start": "2021-04-23T09:00:00",
+        "End": "2021-04-23T12:00:00"
       }
     ],
     "Movies": [
       {
-        "Title": "Test",
-        "Genre": "Test",
-        "Length": 123
+        "Title": "Gone with the Wild",
+        "Genre": "Drama, History, Romance",
+        "Length": 14280
+      },
+      {
+        "Title": "The Wizard of Oz",
+        "Genre": "Adventure, Family, Fantasy",
+        "Length": 6120
+      },
+      {
+        "Title": "Lawrence of Arabia",
+        "Genre": "Adventure, Biography, Drama",
+        "Length": 13681
       }
     ],
     "Customers": [
       {
-        "Firstname": "Test",
-        "Lastname": "Test2"
+        "Firstname": "Monet",
+        "Lastname": "Hardeman"
+      },
+      {
+        "Firstname": "Reynalda ",
+        "Lastname": "Ballantine"
+      },
+      {
+        "Firstname": "Carl",
+        "Lastname": "Gotcher"
+      },
+      {
+        "Firstname": "Jarvis",
+        "Lastname": "Phenix"
       }
     ],
     "Bookings": [
       {
-        "Show": null,
-        "Customer": null
+        "Show": {
+          "Room": {
+            "Name": "Saal A1",
+            "Seats": 100
+          },
+          "Movie": {
+            "Title": "Gone with the Wild",
+            "Genre": "Drama, History, Romance",
+            "Length": 14280
+          },
+          "Start": "2021-04-22T08:00:00",
+          "End": "2021-04-22T13:00:00"
+        },
+        "Customer": {
+          "Firstname": "Monet",
+          "Lastname": "Hardeman"
+        }
       },
       {
         "Show": {
-          "Room": null,
-          "Movie": null,
-          "Start": "0001-01-01T00:00:00",
-          "End": "9999-12-31T23:59:59.9999999"
+          "Room": {
+            "Name": "Saal A2",
+            "Seats": 50
+          },
+          "Movie": {
+            "Title": "The Wizard of Oz",
+            "Genre": "Adventure, Family, Fantasy",
+            "Length": 6120
+          },
+          "Start": "2021-04-21T12:00:00",
+          "End": "2021-04-21T14:00:00"
         },
         "Customer": {
-          "Firstname": "Test",
-          "Lastname": "Test2"
+          "Firstname": "Reynalda ",
+          "Lastname": "Ballantine"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A3",
+            "Seats": 15
+          },
+          "Movie": {
+            "Title": "Lawrence of Arabia",
+            "Genre": "Adventure, Biography, Drama",
+            "Length": 13681
+          },
+          "Start": "2021-04-23T09:00:00",
+          "End": "2021-04-23T12:00:00"
+        },
+        "Customer": {
+          "Firstname": "Carl",
+          "Lastname": "Gotcher"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A3",
+            "Seats": 15
+          },
+          "Movie": {
+            "Title": "Lawrence of Arabia",
+            "Genre": "Adventure, Biography, Drama",
+            "Length": 13681
+          },
+          "Start": "2021-04-23T09:00:00",
+          "End": "2021-04-23T12:00:00"
+        },
+        "Customer": {
+          "Firstname": "Jarvis",
+          "Lastname": "Phenix"
         }
       }
     ]
   },
   {
-    "Name": "Test",
+    "Name": "Kino Gemini",
     "Rooms": [],
     "Shows": [],
     "Movies": [],
@@ -86,7 +195,7 @@
     "Bookings": []
   },
   {
-    "Name": "Test",
+    "Name": "Kino Sojus",
     "Rooms": [],
     "Shows": [],
     "Movies": [],
@@ -94,24 +203,269 @@
     "Bookings": []
   },
   {
-    "Name": "Neu kim",
+    "Name": "Kino Wostok",
     "Rooms": [
       {
-        "Name": "",
-        "Seats": -1
+        "Name": "Saal A1",
+        "Seats": 100
       },
       {
-        "Name": "",
-        "Seats": -1
+        "Name": "Saal A2",
+        "Seats": 50
       },
       {
-        "Name": "",
-        "Seats": -1
+        "Name": "Saal A3",
+        "Seats": 15
+      },
+      {
+        "Name": "Saal B1",
+        "Seats": 250
+      },
+      {
+        "Name": "Saal B2",
+        "Seats": 175
+      },
+      {
+        "Name": "Saal B3",
+        "Seats": 150
+      },
+      {
+        "Name": "Saal C1",
+        "Seats": 150
       }
     ],
-    "Shows": [],
-    "Movies": [],
-    "Customers": [],
-    "Bookings": []
+    "Shows": [
+      {
+        "Room": {
+          "Name": "Saal A1",
+          "Seats": 100
+        },
+        "Movie": {
+          "Title": "Schindler's List",
+          "Genre": "Biography, Drama, History",
+          "Length": 11700
+        },
+        "Start": "2021-04-13T10:00:00",
+        "End": "2021-04-13T14:00:00"
+      },
+      {
+        "Room": {
+          "Name": "Saal A2",
+          "Seats": 50
+        },
+        "Movie": {
+          "Title": "The Godfather",
+          "Genre": "Crime, Drama",
+          "Length": 10500
+        },
+        "Start": "2021-04-13T09:00:00",
+        "End": "2021-04-13T12:00:00"
+      },
+      {
+        "Room": {
+          "Name": "Saal A3",
+          "Seats": 15
+        },
+        "Movie": {
+          "Title": "Casablanca",
+          "Genre": "Drama, Romance, War",
+          "Length": 6120
+        },
+        "Start": "2021-04-14T14:00:00",
+        "End": "2021-04-14T17:00:00"
+      }
+    ],
+    "Movies": [
+      {
+        "Title": "The Godfather",
+        "Genre": "Crime, Drama",
+        "Length": 10500
+      },
+      {
+        "Title": "Schindler's List",
+        "Genre": "Biography, Drama, History",
+        "Length": 11700
+      },
+      {
+        "Title": "Raging Bull",
+        "Genre": "Bopgraühy, Drama, Sport",
+        "Length": 7740
+      },
+      {
+        "Title": "Casablanca",
+        "Genre": "Drama, Romance, War",
+        "Length": 6120
+      },
+      {
+        "Title": "Citizen Kane",
+        "Genre": "Drama, Mystery",
+        "Length": 7140
+      }
+    ],
+    "Customers": [
+      {
+        "Firstname": "Ronnie",
+        "Lastname": "Inge"
+      },
+      {
+        "Firstname": "Paula",
+        "Lastname": "Diehm"
+      },
+      {
+        "Firstname": "Trista",
+        "Lastname": "Besaw"
+      },
+      {
+        "Firstname": "Elina",
+        "Lastname": "Sigler"
+      },
+      {
+        "Firstname": "Kenneth",
+        "Lastname": "Bojorquez"
+      },
+      {
+        "Firstname": "Zena",
+        "Lastname": "Garrick"
+      },
+      {
+        "Firstname": "Lester",
+        "Lastname": "Bryan"
+      }
+    ],
+    "Bookings": [
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A1",
+            "Seats": 100
+          },
+          "Movie": {
+            "Title": "Schindler's List",
+            "Genre": "Biography, Drama, History",
+            "Length": 11700
+          },
+          "Start": "2021-04-13T10:00:00",
+          "End": "2021-04-13T14:00:00"
+        },
+        "Customer": {
+          "Firstname": "Ronnie",
+          "Lastname": "Inge"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A2",
+            "Seats": 50
+          },
+          "Movie": {
+            "Title": "The Godfather",
+            "Genre": "Crime, Drama",
+            "Length": 10500
+          },
+          "Start": "2021-04-13T09:00:00",
+          "End": "2021-04-13T12:00:00"
+        },
+        "Customer": {
+          "Firstname": "Paula",
+          "Lastname": "Diehm"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A2",
+            "Seats": 50
+          },
+          "Movie": {
+            "Title": "The Godfather",
+            "Genre": "Crime, Drama",
+            "Length": 10500
+          },
+          "Start": "2021-04-13T09:00:00",
+          "End": "2021-04-13T12:00:00"
+        },
+        "Customer": {
+          "Firstname": "Trista",
+          "Lastname": "Besaw"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A3",
+            "Seats": 15
+          },
+          "Movie": {
+            "Title": "Casablanca",
+            "Genre": "Drama, Romance, War",
+            "Length": 6120
+          },
+          "Start": "2021-04-14T14:00:00",
+          "End": "2021-04-14T17:00:00"
+        },
+        "Customer": {
+          "Firstname": "Elina",
+          "Lastname": "Sigler"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A1",
+            "Seats": 100
+          },
+          "Movie": {
+            "Title": "Schindler's List",
+            "Genre": "Biography, Drama, History",
+            "Length": 11700
+          },
+          "Start": "2021-04-13T10:00:00",
+          "End": "2021-04-13T14:00:00"
+        },
+        "Customer": {
+          "Firstname": "Kenneth",
+          "Lastname": "Bojorquez"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A2",
+            "Seats": 50
+          },
+          "Movie": {
+            "Title": "The Godfather",
+            "Genre": "Crime, Drama",
+            "Length": 10500
+          },
+          "Start": "2021-04-13T09:00:00",
+          "End": "2021-04-13T12:00:00"
+        },
+        "Customer": {
+          "Firstname": "Zena",
+          "Lastname": "Garrick"
+        }
+      },
+      {
+        "Show": {
+          "Room": {
+            "Name": "Saal A3",
+            "Seats": 15
+          },
+          "Movie": {
+            "Title": "Casablanca",
+            "Genre": "Drama, Romance, War",
+            "Length": 6120
+          },
+          "Start": "2021-04-14T14:00:00",
+          "End": "2021-04-14T17:00:00"
+        },
+        "Customer": {
+          "Firstname": "Lester",
+          "Lastname": "Bryan"
+        }
+      }
+    ]
   }
 ]
