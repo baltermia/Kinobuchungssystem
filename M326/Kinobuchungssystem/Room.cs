@@ -12,6 +12,11 @@ namespace Kinobuchungssystem
 
         public int Seats { get; private set; }
 
+        /// <summary>
+        /// Creates a new instance of Room
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="seats"></param>
         public Room(string name, int seats)
         {
             Name = name;
@@ -23,6 +28,12 @@ namespace Kinobuchungssystem
             return Name;
         }
 
+        /// <summary>
+        /// Creates a new StackPanel with the given parameters (if they're set)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="seats"></param>
+        /// <returns></returns>
         private static StackPanel CreatePanel(string name = null, int? seats = null)
         {
             StackPanel panel = new StackPanel();
@@ -56,11 +67,21 @@ namespace Kinobuchungssystem
 
             return panel;
         }
+
+        /// <summary>
+        /// Returns a empty StackPanel to create a new Room
+        /// </summary>
+        /// <returns></returns>
         public static StackPanel GetEmptyPanel()
         {
             return CreatePanel();
         }
 
+        /// <summary>
+        /// Returns a new Room given the StackPanel
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
         public static Room GetNewFromGrid(Panel panel)
         {
             string name = ((TextBox)panel.Children[1]).Text;

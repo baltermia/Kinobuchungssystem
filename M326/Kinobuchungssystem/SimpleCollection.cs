@@ -41,6 +41,7 @@ namespace Kinobuchungssystem
         /// <param name="item"></param>
         public void Add(T item)
         {
+            //Gets the fist free key and adds the item to the dictionary
             _items.Add(Enumerable.Range(0, int.MaxValue).Except(_items.Keys).First(), item);
         }
 
@@ -59,13 +60,16 @@ namespace Kinobuchungssystem
         /// <param name="item"></param>
         public void Remove(T item)
         {
+            //Find the entry in the dictionary corresponding the given item
             KeyValuePair<int, T> entry = _items.FirstOrDefault(i => i.Value.Equals(item));
 
+            //If no entry as found (meaning the value is null) return immediately
             if (entry.Value == null)
             {
                 return;
             }
 
+            //Remove the entry in the dictionary given the key
             Remove(entry.Key);
         }
 

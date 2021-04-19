@@ -14,6 +14,12 @@ namespace Kinobuchungssystem
 		
 		public int Length { get; private set; }
 		
+        /// <summary>
+        /// Creates a new instance of Movie
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="genre"></param>
+        /// <param name="length"></param>
 		public Movie(string title, string genre, int length)
         {
 			Title = title;
@@ -26,6 +32,13 @@ namespace Kinobuchungssystem
             return Title;
         }
 
+        /// <summary>
+        /// Creates a new StackPanel with the given parameters (if they're set)
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="genre"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
         private static StackPanel CreatePanel(string title = null, string genre = null, int? length = null)
         {
             StackPanel panel = new StackPanel();
@@ -73,11 +86,20 @@ namespace Kinobuchungssystem
             return panel;
         }
 
+        /// <summary>
+        /// Returns a empty StackPanel to create a new Movie object
+        /// </summary>
+        /// <returns></returns>
 		public static StackPanel GetEmptyPanel()
         {
             return CreatePanel();
         }
 
+        /// <summary>
+        /// Create a new Movie object give the StackPanel
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
         public static Movie GetNewFromPanel(StackPanel panel)
         {
             string title = ((TextBox)panel.Children[1]).Text;

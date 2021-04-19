@@ -15,6 +15,13 @@ namespace Kinobuchungssystem
 
         public DateTime End { get; private set; }
 
+        /// <summary>
+        /// Creates a new instance of Show
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="movie"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public Show(Room room, Movie movie, DateTime start, DateTime end)
         {
             Room = room;
@@ -28,6 +35,15 @@ namespace Kinobuchungssystem
             return Movie?.Title + " in " + Room?.Name + " am " + Start.ToString("dd.MM.yyyy") + " von " + Start.ToString("HH:mm") + "-" + End.ToString("HH:mm");
         }
 
+        /// <summary>
+        /// Creates a new StackPanel with the given parameters (if they're set)
+        /// </summary>
+        /// <param name="cinema">Cinema is used to fill combobox to select objects</param>
+        /// <param name="room"></param>
+        /// <param name="movie"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         private static StackPanel CreatePanel(Cinema cinema, Room room = null, Movie movie = null, DateTime? start = null, DateTime? end = null)
         {
             StackPanel panel = new StackPanel();
@@ -85,11 +101,22 @@ namespace Kinobuchungssystem
 
             return panel;
         }
+
+        /// <summary>
+        /// Returns a empty StackPanel to create a new Show object
+        /// </summary>
+        /// <param name="cinema"></param>
+        /// <returns></returns>
         public static StackPanel GetEmptyPanel(Cinema cinema)
         {
             return CreatePanel(cinema);
         }
 
+        /// <summary>
+        /// Create a new Show object give the StackPanel
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
         public static Show GetNewFromPanel(StackPanel panel)
         {
             Room room = (Room)((ComboBox)panel.Children[1]).SelectedItem;

@@ -23,31 +23,52 @@ namespace Kinobuchungssystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Controller object
+        /// </summary>
         private readonly Controller controller;
 
+        /// <summary>
+        /// Path to the Data.json file. The file includes all objects stored in the controller object
+        /// </summary>
         private const string DATA = @"..\..\Data.json";
 
+        /// <summary>
+        /// Creates a new instance of MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
 
+            //Get controller with the objects from the Data.json file
             controller = new Controller(DATA);
 
+            //Reload comboboxes
             LoadCombobox();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            //When the window closes again, save the data in the json file again
             controller.Save(DATA);
         }
 
+        /// <summary>
+        /// Returns the Cinema which is currently selected in the cbxCinemas combobox
+        /// </summary>
+        /// <returns></returns>
         private Cinema GetSelectedCinema()
         {
             return (Cinema)cbxCinemas.SelectedItem;
         }
 
+        /// <summary>
+        /// Loads all the data into the datagrids (basically a reload)
+        /// </summary>
+        /// <param name="cinema"></param>
         private void LoadDataGrids(Cinema cinema = null)
         {
+            //If the given cinema is null, get the selected cinema
             cinema = cinema ?? GetSelectedCinema();
 
             // .ToList() is necessary as otherwise the list wouldn't be updated correctly (because of IEnumerable)
@@ -58,24 +79,45 @@ namespace Kinobuchungssystem
             grdBooking.ItemsSource = cinema?.Bookings.ToList();
         }
 
+        /// <summary>
+        /// Loads all the cinemas into the combobox (basically a reload)
+        /// </summary>
         private void LoadCombobox()
         {
+            //Clear the source and set it to the Cinemas list again. (.ToList() is neccessary)
             cbxCinemas.ItemsSource = null;
             cbxCinemas.ItemsSource = controller.Cinemas.ToList();
+
+            //If the selected item is null and there is at least one cinema in the combobox, select the first one in the list
+            if (cbxCinemas.SelectedItem == null && cbxCinemas.Items.Count >= 1)
+            {
+                cbxCinemas.SelectedIndex = 0;
+            }
         }
 
+        /// <summary>
+        /// Shows the Editwindow with the given IEditObject
+        /// </summary>
+        /// <param name="obj"></param>
         private void ShowEditWindow(IEditObject obj)
         {
             bool? result = new EditWindow(obj, GetSelectedCinema()).ShowDialog();
 
+            //If the result is true (meaning the user clicked on 'save') reload the datagrids to show the changes
             if (result == true)
             {
                 LoadDataGrids();
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxCinemas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Get the current cinema and reload the datagrids
             Cinema cinema = GetSelectedCinema();
             LoadDataGrids(cinema);
 
@@ -91,26 +133,32 @@ namespace Kinobuchungssystem
         #region Room Grid
         private void btnNewRoom_Click(object sender, RoutedEventArgs e)
         {
+            //Open the AddWindow with the Panel and get the edited one back
             StackPanel panel = new AddWindow(Room.GetEmptyPanel()).ShowWindow();
 
+            //If no panel was returned (meaning it's value is null) return immediately
             if (panel == null)
             {
                 return;
             }
 
+            //Get the new room object from the grid
             Room room = Room.GetNewFromGrid(panel);
 
+            //Add the new room to the list and reload the datagrids
             GetSelectedCinema().Rooms.Add(room);
             LoadDataGrids();
         }
 
         private void btnEditRoom_Click(object sender, RoutedEventArgs e)
         {
+            //Show the EditWindow with the object
             ShowEditWindow((Room)((Button)e.Source).DataContext);
         }
 
         private void btnDeleteRoom_Click(object sender, RoutedEventArgs e)
         {
+            //Delete the 
             GetSelectedCinema()?.Rooms.Remove((Room)((Button)e.Source).DataContext);
             LoadDataGrids();
         }
@@ -228,7 +276,7 @@ namespace Kinobuchungssystem
         #region Cinema
         private void btnNewCinema_Click(object sender, RoutedEventArgs e)
         {
-            StackPanel panel = new AddWindow(Cinema.GetPanel()).ShowWindow();
+            StackPanel panel = new AddWindow(Cinema.GetEmptyPanel()).ShowWindow();
 
             if (panel == null)
             {

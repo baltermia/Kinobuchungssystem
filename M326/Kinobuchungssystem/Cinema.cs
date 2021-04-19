@@ -18,6 +18,15 @@ namespace Kinobuchungssystem
 
         public readonly SimpleCollection<Booking> Bookings;
 
+        /// <summary>
+        /// Creates a new instance of Cinema
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="rooms"></param>
+        /// <param name="movies"></param>
+        /// <param name="customers"></param>
+        /// <param name="bookings"></param>
+        /// <param name="shows"></param>
         public Cinema(string name, IEnumerable<Room> rooms = null, IEnumerable<Movie> movies = null, IEnumerable<Customer> customers = null, IEnumerable<Booking> bookings= null, IEnumerable<Show> shows = null)
         {
             Name = name;
@@ -33,7 +42,11 @@ namespace Kinobuchungssystem
             return Name;
         }
 
-        public static StackPanel GetPanel()
+        /// <summary>
+        /// Returns a empty StackPanel to create a new Cinema object
+        /// </summary>
+        /// <returns></returns>
+        public static StackPanel GetEmptyPanel()
         {
             StackPanel panel = new StackPanel();
 
@@ -50,6 +63,11 @@ namespace Kinobuchungssystem
             return panel;
         }
 
+        /// <summary>
+        /// Create a new Customer object give the StackPanel
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
         public static Cinema GetNewFromPanel(StackPanel panel)
         {
             string name = ((TextBox)panel.Children[1]).Text;

@@ -22,6 +22,12 @@ namespace Kinobuchungssystem
             return Firstname + ", " + Lastname;
         }
 
+        /// <summary>
+        /// Creates a new StackPanel with the given parameters (if they're set)
+        /// </summary>
+        /// <param name="firstname"></param>
+        /// <param name="lastname"></param>
+        /// <returns></returns>
         private static StackPanel CreatePanel(string firstname = null, string lastname = null)
         {
             StackPanel panel = new StackPanel();
@@ -55,11 +61,20 @@ namespace Kinobuchungssystem
             return panel;
         }
 
+        /// <summary>
+        /// Returns a empty StackPanel to create a new Customer object
+        /// </summary>
+        /// <returns></returns>
         public static StackPanel GetEmptyPanel()
         {
             return CreatePanel();
         }
 
+        /// <summary>
+        /// Create a new Customer object give the StackPanel
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
         public static Customer GetNewFromGrid(Panel panel)
         {
             string firstname = ((TextBox)panel.Children[1]).Text;
