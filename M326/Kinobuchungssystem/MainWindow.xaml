@@ -59,7 +59,7 @@
                     <Border Grid.Column="0" Padding="0 0 5 5">
                         <StackPanel>
                             <Grid>
-                                <Label Content="Rooms" 
+                                <Label Content="Säle" 
                                    FontSize="16"
                                    FontWeight="Bold"/>
                                 <Button Name="btnNewRoom" 
