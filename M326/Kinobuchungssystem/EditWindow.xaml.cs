@@ -43,10 +43,10 @@ namespace Kinobuchungssystem
 
         private void ChangeToSize()
         {
-            Height = lblTitle.ActualHeight + btnCreate.ActualHeight + brdFields.ActualHeight + 70;
+            Height = lblTitle.ActualHeight + btnSave.ActualHeight + brdFields.ActualHeight + 70;
         }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
 
